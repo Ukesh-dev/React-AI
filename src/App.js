@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import { InView } from "react-intersection-observer"
 import { GlobalStyles, GradientBg } from './GlobalStyles';
 import { Brand, Cta, Navbar, Article, Footer } from './components'
-import { Blog, Features, Header, Hero } from './containers';
+import { Features, Hero } from './containers';
 import Possiblility from './containers/possibility/Possiblility';
 import { useState } from 'react';
 

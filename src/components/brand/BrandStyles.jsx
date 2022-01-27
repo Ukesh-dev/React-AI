@@ -12,22 +12,12 @@ export const BrandContainer = styled.div`
   margin: 0 auto;
   text-align: center;
   justify-content: center;
-
-  > * + * {
-    /* margin-left: 2rem; */
-    /* margin-block: 2rem; */
-  }
 `;
 
 export const BrandImgWrapper = styled.div`
-  /* max-width: 300px; */
-  /* min-width: 120px; */
   width: 150px;
   display: grid;
-  /* margin: 1rem; */
   place-items: center;
   margin-block: 1rem;
 `;
-export const BrandLogo = styled.img`
-  /* width: 80%; */
-`;
+export const BrandLogo = styled.img``;

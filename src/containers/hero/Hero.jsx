@@ -1,6 +1,6 @@
 import React from "react";
-import Tilt from "react-vanilla-tilt";
-import { Container, GradientText } from "../../GlobalStyles";
+import Tilt from "react-parallax-tilt";
+import { Container } from "../../GlobalStyles";
 import {
   HeroButton,
   HeroContent,
@@ -20,17 +20,11 @@ const Hero = React.forwardRef(
   ({ id, inView, setActiveCharacter, activeCharacter }, ref) => {
     React.useEffect(() => {
       if (inView) {
-        console.log("in View");
         setActiveCharacter(id);
       }
-
-      // activeClass =
-      //   props.activeCharacter === props.data.name
-      //     ? "character-block--active"
-      //     : "";
-    }, [inView, setActiveCharacter, id]);
+    }, [activeCharacter, inView, setActiveCharacter, id]);
     return (
-      <HeroSection>
+      <HeroSection id={id}>
         <Container>
           <HeroWrapper>
             <HeroContent>
@@ -55,10 +49,7 @@ const Hero = React.forwardRef(
               </HeroPeople>
             </HeroContent>
             <HeroImgBox>
-              <Tilt
-                style={{ background: "none" }}
-                options={{ scale: 0, max: 35 }}
-              >
+              <Tilt scale={1.1} tiltReverse={true}>
                 <img src="./assets/ai.png" alt="ai" />
               </Tilt>
             </HeroImgBox>

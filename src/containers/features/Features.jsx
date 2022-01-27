@@ -11,7 +11,6 @@ import {
   FeaturesFutureColumn1Heading,
   FeaturesFutureColumn1Desc,
   FeaturesFutureColumn2,
-  FeaturesFutureColumn3,
   FeaturesFutureContainer,
   FeaturesHeading,
   FeaturesHeadingDesc,
@@ -22,15 +21,13 @@ import {
 } from "../../containers/features/FeaturesStyles";
 import Feature from "../../components/feature/Feature";
 import { featuresData } from "../../data/featuresData";
-import { RiContactsBookLine } from "react-icons/ri";
 const Features = React.forwardRef(
   ({ id, inView, activeCharacter, setActiveCharacter }, ref) => {
     React.useEffect(() => {
       if (inView) {
-        console.log("in view");
         setActiveCharacter(id);
       }
-    }, [inView]);
+    }, [inView, activeCharacter, setActiveCharacter, id]);
     return (
       <FeaturesSection id={id} ref={ref}>
         <FeaturesContainer>
@@ -92,16 +89,6 @@ const Features = React.forwardRef(
                 );
               })}
             </FeaturesFutureColumn2>
-            {/* <FeaturesFutureColumn3>
-            {featuresData.map(({ text }, index) => {
-              return (
-                <FeaturesFutureColumn3Data key={index}>
-                  {text}
-                </FeaturesFutureColumn3Data>
-              );
-            })}
-            {/* <FeaturesFutureColumn2Desc>{text}</FeaturesFutureColumn2Desc> */}
-            {/* </FeaturesFutureColumn3> */}
           </FeaturesFutureContainerWrapper>
         </FeaturesFutureContainer>
       </FeaturesSection>

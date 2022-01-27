@@ -21,7 +21,7 @@ import {
 
 const Footer = ({ id, setActiveCharacter }) => {
   const { ref, inView } = useInView({
-    threshold: 0.75,
+    threshold: 0.5,
   });
   React.useEffect(() => {
     if (inView) {
@@ -29,8 +29,8 @@ const Footer = ({ id, setActiveCharacter }) => {
     }
   }, [inView, setActiveCharacter, id]);
   return (
-    <FooterSection ref={ref}>
-      <FooterContainer>
+    <FooterSection>
+      <FooterContainer ref={ref} id={id}>
         <FooterHeader>
           Do you want to step into the future before others
         </FooterHeader>

@@ -12,7 +12,6 @@ export const FooterSection = styled(Section)`
 
 export const FooterContainer = styled(Container)`
   display: flex;
-  /* flex-direction: column; */
   flex-wrap: wrap;
   justify-content: center;
 `;
@@ -36,6 +35,12 @@ export const FooterButton = styled(Button)`
   box-sizing: border-box;
   margin-block: clamp(2rem, 15vh, 4rem);
   padding: 1rem 2rem;
+  transition: all 0.35s ease;
+
+  &:hover {
+    background: var(--gradient-bar);
+    border-color: pink;
+  }
 `;
 
 export const FooterContent = styled.div`
@@ -76,7 +81,6 @@ export const FooterColumn1 = styled.div`
     align-items: start;
   }
   align-items: center;
-  /* justify-content: center; */
   text-align: left;
 
   > div {

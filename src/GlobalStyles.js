@@ -68,6 +68,7 @@ body {
   line-height: 1.5;
   background: var(--color-bg);
   color: var(--color-text);
+  scroll-behavior: smooth;
 
 }
 

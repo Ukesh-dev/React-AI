@@ -21,11 +21,9 @@ export const FeaturesWrapper = styled.div`
     z-index: -1;
     border-radius: 50%;
     background: #0f4279;
-    /* background: green; */
     filter: blur(120px);
     width: 40%;
     aspect-ratio: 1;
-    /* aspe */
     left: -270px;
     top: -220px;
   }
@@ -41,15 +39,10 @@ export const FeaturesWrapper = styled.div`
     background: #1b78de;
     filter: blur(200px);
   }
-
-  /* background-repeat: no-repeat;
-  background-position: top bottom; */
 `;
 export const FeaturesHeadingWrapper = styled.div`
   display: flex;
-  /* flex-wrap: wrap; */
   justify-content: space-between;
-  /* align-items: center; */
   @media (max-width: 768px) {
     flex-direction: column;
   }
@@ -115,8 +108,6 @@ export const FeaturedSection = styled.div`
 export const FeaturesFutureContainer = styled.div`
   margin-top: 5rem;
   position: relative;
-  /* padding: 4rem; */
-  /* overflow: hidden; */
 
   &::before {
     content: "";
@@ -125,8 +116,6 @@ export const FeaturesFutureContainer = styled.div`
     width: 50%;
     aspect-ratio: 1;
     border-radius: 50%;
-    /* left: -444px; */
-    /* top: 1712px; */
     left: -200px;
     top: -200px;
     @media (max-width: 769px) {
@@ -136,13 +125,11 @@ export const FeaturesFutureContainer = styled.div`
     }
 
     background: #07325f;
-    /* background: green; */
     filter: blur(200px);
   }
 `;
 export const FeaturesFutureContainerWrapper = styled(Container)`
   display: grid;
-  /* padding: 0; */
   grid-template-columns: 1fr 1fr;
   justify-content: center;
   @media (max-width: 768px) {
@@ -150,7 +137,6 @@ export const FeaturesFutureContainerWrapper = styled(Container)`
   }
 `;
 export const FeaturesFutureColumn1 = styled.div`
-  /* padding-right: 8rem; */
   padding-right: 1rem;
 `;
 export const FeaturesFutureColumn1Heading = styled(GradientText)`
@@ -162,14 +148,9 @@ export const FeaturesFutureColumn1Desc = styled.p`
 export const FeaturesFutureColumn2 = styled.div`
   > div {
     display: flex;
-    /* align-items: flex-start; */
     justify-content: space-between;
   }
 `;
-// export const FeaturesFutureColumn2Wrapper = styled.div`
-//   display: flex;
-//   justify-content: space-between;
-// `;
 export const FeaturesFutureColumn2Data = styled.h2`
   font-size: 1rem;
   color: #fff;

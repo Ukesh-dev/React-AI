@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Container, GradientText, Section } from "../../GlobalStyles";
+import { Container, GradientText } from "../../GlobalStyles";
 
 export const PossibilitySection = styled.div``;
 export const PossibilityContainer = styled(Container)`
@@ -37,7 +37,6 @@ export const PossibilityDesch3II = styled.h3`
   color: #ff8a71;
 `;
 export const PossibilityDesh2 = styled(GradientText)`
-  /* line-height: 45px; */
   font-size: clamp(1.5rem, 2vw, 2rem);
 `;
 export const PossibilityDescP = styled.p`

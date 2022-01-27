@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { GradientText } from "../../GlobalStyles";
 
 export const FeatureWrapper = styled.div``;
 export const FeatureHeading = styled.h2`

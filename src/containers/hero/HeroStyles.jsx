@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { GradientText } from "../../GlobalStyles";
-// import { Section } from "../../GlobalStyles";
 export const HeroSection = styled.div`
   padding: 3.5rem 1rem;
   padding: clamp(4rem, 20vh, 10rem) 1rem 2rem;
@@ -70,7 +69,6 @@ export const HeroPeople = styled.div`
   font-size: clamp(0.1rem, 3vw, 0.9rem);
   display: flex;
   align-items: center;
-  /* justify-content: space-around; */
   @media (max-width: 768px) {
     text-align: center;
     display: grid;
@@ -81,15 +79,12 @@ export const HeroPeople = styled.div`
 export const HeroImg = styled.img`
   width: 150px;
   margin-right: 0.5rem;
-  /* aspect-ratio: 1/0.2; */
 `;
 export const HeroPeopleDesc = styled.p`
   white-space: wrap;
 `;
 
 export const HeroImgBox = styled.div`
-  /* object-fit: content; */
-
   display: grid;
   place-items: center;
   flex-basis: 40%;

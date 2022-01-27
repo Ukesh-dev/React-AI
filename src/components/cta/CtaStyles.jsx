@@ -33,7 +33,6 @@ export const CtaContainer = styled(Container)`
 export const CtaP = styled.p`
   font-weight: 500;
   font-size: 12px;
-  /* line-height: 30px; */
   color: #0e0e0e;
 `;
 export const Ctah2 = styled.h2`

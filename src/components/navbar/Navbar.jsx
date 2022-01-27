@@ -13,33 +13,10 @@ import {
   MenuBtn,
 } from "./NavbarStyles";
 import { RiCloseLine, RiMenu3Line } from "react-icons/ri";
-
-const navbarData = [
-  {
-    id: "home",
-    text: "Home",
-  },
-  {
-    id: "GPT3",
-    text: "What is GPT3",
-  },
-  {
-    id: "openAi",
-    text: "Open AI",
-  },
-  {
-    id: "caseStudies",
-    text: "Case Studies",
-  },
-  {
-    id: "library",
-    text: "Library",
-  },
-];
+import { navbarData } from "../../data/navbarData";
 
 const Navbar = ({ activeCharacter }) => {
   const ulref = React.useRef(null);
-  // const [active, setActive] = useState(false);
   const [height, setHeight] = React.useState(0);
   const [toggle, setToggle] = React.useState(false);
   const getHeight = () => {
@@ -57,12 +34,33 @@ const Navbar = ({ activeCharacter }) => {
     }
   };
   const renderItems = () => {
+    const handleCLick = (e) => {
+      e.preventDefault();
+      setToggle(!toggle);
+      const element = e.target.getAttribute("href");
+      let location = document.querySelector(element).offsetTop;
+      if (location === 0) {
+        window.scrollTo({
+          top: 0,
+        });
+      } else {
+        window.scrollTo({
+          behavior: "smooth",
+          left: 0,
+          top: location - 90,
+        });
+      }
+    };
     return navbarData.map(({ id, text }) => {
-      let activeClass = activeCharacter == id ? "active" : "inactive";
+      let activeClass = activeCharacter === id ? "active" : "inactive";
 
       return (
         <NavbarItem key={id}>
-          <NavbarLinks href={`#${id}`} className={activeClass}>
+          <NavbarLinks
+            href={`#${id}`}
+            onClick={handleCLick}
+            className={activeClass}
+          >
             {text}
           </NavbarLinks>
         </NavbarItem>

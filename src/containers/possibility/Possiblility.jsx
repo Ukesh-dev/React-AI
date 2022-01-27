@@ -14,7 +14,7 @@ import {
 
 const Possiblility = ({ setActiveCharacter, id }) => {
   const { ref, inView } = useInView({
-    threshold: 0.5,
+    threshold: 0.75,
   });
   React.useEffect(() => {
     if (inView) {
@@ -22,7 +22,7 @@ const Possiblility = ({ setActiveCharacter, id }) => {
     }
   }, [inView, setActiveCharacter, id]);
   return (
-    <PossibilitySection>
+    <PossibilitySection id={id}>
       <PossibilityContainer ref={ref}>
         <PossibilityImgWrapper>
           <PossibilityImg src="./assets/possibility.png"></PossibilityImg>

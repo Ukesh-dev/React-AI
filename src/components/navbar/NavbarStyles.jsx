@@ -106,6 +106,7 @@ export const NavbarItems = styled.ul`
 
   @media screen and (max-width: 768px) {
     flex-direction: column;
+    padding: 1rem 1rem;
     > * {
       margin: 0;
       text-align: center;
@@ -141,7 +142,8 @@ export const NavbarLinks = styled.a`
     display: none;
     width: 0;
   } */
-  &::after {
+  &.active::after,
+  &.inactive::after {
     display: block;
     content: "";
     position: absolute;
@@ -163,6 +165,9 @@ export const NavbarLinks = styled.a`
   }
   &.inactive::after {
     width: 0;
+  }
+  &.inactive:hover:after {
+    width: 100%;
   }
 `;
 
