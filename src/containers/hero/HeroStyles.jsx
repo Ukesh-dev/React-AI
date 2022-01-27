@@ -3,6 +3,7 @@ import { GradientText } from "../../GlobalStyles";
 // import { Section } from "../../GlobalStyles";
 export const HeroSection = styled.div`
   padding: 3.5rem 1rem;
+  padding: clamp(4rem, 20vh, 10rem) 1rem 2rem;
   @media (max-width: 760px) {
     padding-bottom: 0;
   }
@@ -43,6 +44,7 @@ export const HeroInput = styled.input`
   background: var(--color-footer);
   padding: 0.4rem 0.5rem;
   color: #fff;
+  outline: none;
   flex-basis: 50%;
   font-size: clamp(0.3rem, 3vw, 0.9rem);
   border: var(--color-footer);

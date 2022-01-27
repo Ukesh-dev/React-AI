@@ -14,8 +14,32 @@ import {
 } from "./NavbarStyles";
 import { RiCloseLine, RiMenu3Line } from "react-icons/ri";
 
-const Navbar = () => {
+const navbarData = [
+  {
+    id: "home",
+    text: "Home",
+  },
+  {
+    id: "GPT3",
+    text: "What is GPT3",
+  },
+  {
+    id: "openAi",
+    text: "Open AI",
+  },
+  {
+    id: "caseStudies",
+    text: "Case Studies",
+  },
+  {
+    id: "library",
+    text: "Library",
+  },
+];
+
+const Navbar = ({ activeCharacter }) => {
   const ulref = React.useRef(null);
+  // const [active, setActive] = useState(false);
   const [height, setHeight] = React.useState(0);
   const [toggle, setToggle] = React.useState(false);
   const getHeight = () => {
@@ -24,8 +48,33 @@ const Navbar = () => {
       setHeight(height);
     }
   };
+  const [isFixed, setIsFixed] = React.useState(false);
+  const handleScroll = () => {
+    if (window.scrollY > 20) {
+      setIsFixed(true);
+    } else {
+      setIsFixed(false);
+    }
+  };
+  const renderItems = () => {
+    return navbarData.map(({ id, text }) => {
+      let activeClass = activeCharacter == id ? "active" : "inactive";
+
+      return (
+        <NavbarItem key={id}>
+          <NavbarLinks href={`#${id}`} className={activeClass}>
+            {text}
+          </NavbarLinks>
+        </NavbarItem>
+      );
+    });
+  };
+  React.useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  });
   return (
-    <HeaderStyled>
+    <HeaderStyled fixed={isFixed}>
       <Container>
         <NavbarWrapper>
           <Logo>
@@ -33,27 +82,40 @@ const Navbar = () => {
           </Logo>
           <NavbarItemsWrapper toggle={toggle} height={height}>
             <NavbarItems ref={ulref}>
-              <NavbarItem>
-                <NavbarLinks href="#home">Home</NavbarLinks>
-              </NavbarItem>
-              <NavbarItem>
-                <NavbarLinks href="#wgpt3">What is GPT3?</NavbarLinks>
-              </NavbarItem>
-              <NavbarItem>
-                <NavbarLinks href="#possibility">Open AI</NavbarLinks>
-              </NavbarItem>
-              <NavbarItem>
-                <NavbarLinks href="#features">Case Studies</NavbarLinks>
-              </NavbarItem>
-              <NavbarItem>
-                <NavbarLinks href="#blog">Library</NavbarLinks>
-              </NavbarItem>
+              {renderItems()}
               <NavbarItem>
                 <NavbarLinks href="#singin">Sign In </NavbarLinks>
+                <div></div>
               </NavbarItem>
               <NavbarItem>
                 <NavbarLinks href="#singin">Sign Up</NavbarLinks>
+                <div></div>
               </NavbarItem>
+
+              {/* <NavbarItem>
+                <NavbarLinks href="#wgpt3">What is GPT3?</NavbarLinks>
+                <div></div>
+              </NavbarItem>
+              <NavbarItem>
+                <NavbarLinks href="#possibility">Open AI</NavbarLinks>
+                <div></div>
+              </NavbarItem>
+              <NavbarItem>
+                <NavbarLinks href="#features">Case Studies</NavbarLinks>
+                <div></div>
+              </NavbarItem>
+              <NavbarItem>
+                <NavbarLinks href="#blog">Library</NavbarLinks>
+                <div></div>
+              </NavbarItem>
+              <NavbarItem>
+                <NavbarLinks href="#singin">Sign In </NavbarLinks>
+                <div></div>
+              </NavbarItem>
+              <NavbarItem>
+                <NavbarLinks href="#singin">Sign Up</NavbarLinks>
+                <div></div>
+              </NavbarItem> */}
             </NavbarItems>
           </NavbarItemsWrapper>
           <NavButtonWrapper>

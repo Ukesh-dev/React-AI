@@ -1,8 +1,22 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { Button } from "../../GlobalStyles";
+const stretch = keyframes`
+  0%{
+    width: 0;
+    
+  }
+  100% {
+    width: 100%;
+  }
+  
+`;
 
 export const HeaderStyled = styled.header`
   padding: 0.9rem 0;
+  position: fixed;
+  /* position: ${({ fixed }) => (fixed ? "fixed" : "relative")}; */
+  width: 100%;
+  z-index: 999;
   /* background-size: cover; */
   /* background-position: center; */
   background: -moz-radial-gradient(
@@ -114,6 +128,7 @@ export const NavbarItem = styled.li`
   }
 `;
 export const NavbarLinks = styled.a`
+  position: relative;
   color: #fff;
   font-weight: 500;
   font-size: clamp(0.5rem, 1.5vw, 1rem);
@@ -121,6 +136,33 @@ export const NavbarLinks = styled.a`
   text-decoration: none;
   @media (max-width: 768px) {
     font-size: 0.8rem;
+  }
+  /* &::after {
+    display: none;
+    width: 0;
+  } */
+  &::after {
+    display: block;
+    content: "";
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background: linear-gradient(103.22deg, #ae67fa -13.86%, #f49867 99.55%),
+      #ffffff;
+    bottom: -5px;
+    left: 0;
+  }
+
+  &:hover::after {
+    display: block;
+    width: 100%;
+    /* animation: ${stretch} 5s ease-in forwards; */
+  }
+  &.active::after {
+    animation: ${stretch} 0.35s ease-in forwards;
+  }
+  &.inactive::after {
+    width: 0;
   }
 `;
 
