@@ -73,9 +73,11 @@ export const FooterContent = styled.div`
 export const FooterColumn1 = styled.div`
   @media (min-width: 768px) {
     grid-column: span 2;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
+    padding-left: clamp(2rem, 20vw, 5rem);
   }
   @media (max-width: 550px) {
     align-items: start;
@@ -96,6 +98,7 @@ export const FooterColumn1Logo = styled.img`
 
 export const FooterColumn1Text = styled.p`
   font-size: 12px;
+  width: 100%; ;
 `;
 export const FooterColumn2 = styled.div`
   > :first-child {

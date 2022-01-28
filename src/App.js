@@ -7,6 +7,7 @@ import { Features, Hero } from './containers';
 import Possiblility from './containers/possibility/Possiblility';
 import { useState } from 'react';
 
+
 function App() {
   const [pageHeight, setPageHeight] = useState(100);
   const [activeCharacter, setActiveCharacter] = useState("");
@@ -19,15 +20,12 @@ function App() {
     });
   }, []);
   const observerMargin = Math.floor(pageHeight / 2);
-  console.log(observerMargin);
-  React.useEffect(() => {
-    console.log(activeCharacter);
-  }, [activeCharacter]);
   return (
     <div className="App">
       <Helmet>
         {/* <meta charSet='utf-8' /> */}
-        <title>React Website</title>
+        <title>GPT-3</title>
+
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;700&family=Neonderthaw&display=swap" rel="stylesheet" />
@@ -37,14 +35,14 @@ function App() {
       <GradientBg>
         <Navbar activeCharacter={activeCharacter} />
         <InView >
-          {({ ref, inView, entry }) => (
+          {({ ref, inView }) => (
             <Hero ref={ref} inView={inView} activeCharacter={activeCharacter} id="home" setActiveCharacter={setActiveCharacter} />
           )}
         </InView>
       </GradientBg>
 
       <Brand></Brand>
-      <InView rootMargin={`-${pageHeight % 2 === 0 ? observerMargin - 1 : observerMargin}px 0px -${observerMargin}px 0px`}>
+      <InView threshold={0.5} rootMargin="-50px">
         {({ ref, inView }) => (
           <Features id="GPT3" ref={ref} inView={inView} activeCharacter={activeCharacter} setActiveCharacter={setActiveCharacter} />
         )}

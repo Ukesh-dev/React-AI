@@ -29,9 +29,9 @@ const Features = React.forwardRef(
       }
     }, [inView, activeCharacter, setActiveCharacter, id]);
     return (
-      <FeaturesSection id={id} ref={ref}>
+      <FeaturesSection id={id}>
         <FeaturesContainer>
-          <FeaturesWrapper>
+          <FeaturesWrapper ref={ref}>
             <FeaturesHeadingWrapper>
               <FeaturesHeading>What is GPT-3</FeaturesHeading>
               <FeaturesHeadingDesc>

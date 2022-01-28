@@ -33,11 +33,16 @@ export const ArticleGrid = styled.div`
   @media (max-width: 768px) {
     grid-template-columns: repeat(auto-fit, minmax(327px, 1fr));
   }
+  @media (max-width: 550px) {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
 
   > :nth-child(1) {
     grid-row: span 2;
-    > img {
-      aspect-ratio: 1/ 0.75;
+    > div {
+      > img {
+        aspect-ratio: 1/ 0.75;
+      }
     }
     @media (max-width: 768px) {
       > img {

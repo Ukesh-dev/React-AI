@@ -1,5 +1,5 @@
 import React from "react";
-import { useInView } from "react-intersection-observer";
+import InView, { useInView } from "react-intersection-observer";
 import {
   PossibilityContainer,
   PossibilityImgWrapper,
@@ -14,7 +14,7 @@ import {
 
 const Possiblility = ({ setActiveCharacter, id }) => {
   const { ref, inView } = useInView({
-    threshold: 0.75,
+    threshold: 0.5,
   });
   React.useEffect(() => {
     if (inView) {
@@ -24,9 +24,15 @@ const Possiblility = ({ setActiveCharacter, id }) => {
   return (
     <PossibilitySection id={id}>
       <PossibilityContainer ref={ref}>
-        <PossibilityImgWrapper>
-          <PossibilityImg src="./assets/possibility.png"></PossibilityImg>
-        </PossibilityImgWrapper>
+        <InView triggerOnce={true} rootMargin="500px">
+          {({ ref, inView }) => (
+            <PossibilityImgWrapper ref={ref}>
+              {inView && (
+                <PossibilityImg src="./assets/possibility.png"></PossibilityImg>
+              )}
+            </PossibilityImgWrapper>
+          )}
+        </InView>
         <PossibilityDescWrapper>
           <PossibilityDesch3>
             Request Early Access to Get Started

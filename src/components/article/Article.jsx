@@ -1,11 +1,10 @@
 import React from "react";
-import { useInView } from "react-intersection-observer";
+import InView, { useInView } from "react-intersection-observer";
 import {
   ArticleContainer,
   ArticleContenth2,
   ArticleContenth3,
   ArticleGrid,
-  ArticleItemFlex,
   ArticleContent,
   ArticleItemImg,
   ArticleHeader,
@@ -16,7 +15,7 @@ import { articleData } from "../../data/articleData";
 
 const Article = ({ id, activeCharacter, setActiveCharacter }) => {
   const { ref, inView } = useInView({
-    threshold: 0.2,
+    threshold: 0.27,
   });
   React.useEffect(() => {
     if (inView) {
@@ -24,8 +23,8 @@ const Article = ({ id, activeCharacter, setActiveCharacter }) => {
     }
   }, [activeCharacter, setActiveCharacter, id, inView]);
   return (
-    <ArticleSection id={id} ref={ref}>
-      <ArticleContainer>
+    <ArticleSection id={id}>
+      <ArticleContainer ref={ref}>
         <ArticleHeader>
           A lot is happening,
           <span>We are bloggin about it.</span>
@@ -50,7 +49,15 @@ const Article = ({ id, activeCharacter, setActiveCharacter }) => {
               return (
                 <React.Fragment key={index}>
                   <ArticleItem key={index}>
-                    <ArticleItemImg src={img}></ArticleItemImg>
+                    <InView triggerOnce={true} rootMargin="500px">
+                      {({ ref, inView }) => (
+                        <div ref={ref}>
+                          {inView && (
+                            <ArticleItemImg src={img}></ArticleItemImg>
+                          )}
+                        </div>
+                      )}
+                    </InView>
                     <ArticleContent>
                       <div>
                         <ArticleContenth3>{text1}</ArticleContenth3>

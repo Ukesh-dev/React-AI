@@ -30,11 +30,11 @@ const Footer = ({ id, setActiveCharacter }) => {
   }, [inView, setActiveCharacter, id]);
   return (
     <FooterSection>
-      <FooterContainer ref={ref} id={id}>
+      <FooterContainer id={id}>
         <FooterHeader>
           Do you want to step into the future before others
         </FooterHeader>
-        <FooterButtonWrapper>
+        <FooterButtonWrapper ref={ref}>
           <FooterButton>Request Early Access</FooterButton>
         </FooterButtonWrapper>
         <FooterContent>

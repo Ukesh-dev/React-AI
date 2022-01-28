@@ -18,11 +18,22 @@ import {
 
 const Hero = React.forwardRef(
   ({ id, inView, setActiveCharacter, activeCharacter }, ref) => {
+    // const [ref2, inView2] = useInView({
+    //   rootMargin: "100px",
+    //   triggerOnce: true,
+    // });
+
     React.useEffect(() => {
       if (inView) {
         setActiveCharacter(id);
       }
     }, [activeCharacter, inView, setActiveCharacter, id]);
+    // React.useEffect(() => {
+    //   if (inView2) {
+    //     setisLoaded(true);
+    //     console.log("it loaded");
+    //   }
+    // }, [inView2]);
     return (
       <HeroSection id={id}>
         <Container>

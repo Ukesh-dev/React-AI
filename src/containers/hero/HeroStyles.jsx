@@ -2,9 +2,10 @@ import styled from "styled-components";
 import { GradientText } from "../../GlobalStyles";
 export const HeroSection = styled.div`
   padding: 3.5rem 1rem;
-  padding: clamp(4rem, 20vh, 10rem) 1rem 2rem;
+  padding: clamp(3rem, 22vh, 15rem) 1rem 2rem;
   @media (max-width: 760px) {
     padding-bottom: 0;
+    padding-top: 7rem;
   }
 `;
 export const HeroWrapper = styled.div`
@@ -22,12 +23,12 @@ export const HeroContent = styled.div`
   flex-direction: column;
 `;
 export const HeroHeading = styled(GradientText)`
-  font-size: clamp(1.5rem, 5vw, 3.5rem);
+  font-size: clamp(1.7rem, 6vw, 3.5rem);
   line-height: 1.2;
 `;
 
 export const HeroDescription = styled.p`
-  font-size: clamp(0.3rem, 4vw, 1rem);
+  font-size: clamp(0.3rem, 3vw, 1rem);
   line-height: 1.2;
   margin-block: 1.2rem;
   @media screen and (min-width: 500px) {

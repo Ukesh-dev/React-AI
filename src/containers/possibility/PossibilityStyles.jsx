@@ -5,6 +5,7 @@ export const PossibilitySection = styled.div``;
 export const PossibilityContainer = styled(Container)`
   display: flex;
   align-items: flex-end;
+  padding-inline: 1.9rem;
   justify-content: center;
   @media (max-width: 768px) {
     flex-direction: column;
